@@ -1,0 +1,6 @@
+# Owner: Track 3 (World and Audio). Format: id,speaker,text,seconds (seconds optional).
+# PLACEHOLDER lines so Track 1 can test captions. Replace with the real story lines.
+id,speaker,text,seconds
+test_01,Vendor,"Fresh bread, fresh bread! Come and get it!",3
+test_02,Radio,"...the power is expected back before dawn.",3.5
+test_03,Child,"Is somebody there?",2.5
