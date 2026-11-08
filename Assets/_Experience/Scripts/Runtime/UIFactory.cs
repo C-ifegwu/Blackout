@@ -81,6 +81,7 @@ namespace Blackout.Experience
             text = Label("Label", bg.transform, label, fontSize, TextAlignmentOptions.Center, UIStyle.Text, FontStyles.Bold);
             Stretch(text.rectTransform);
             text.margin = new Vector4(12f, 4f, 12f, 4f);
+            button.onClick.AddListener(() => UISounds.Play(label != null && label.ToLowerInvariant().Contains("back") ? UISounds.Kind.Back : UISounds.Kind.Click));
             if (onClick != null) button.onClick.AddListener(() => onClick());
             return button;
         }

@@ -39,7 +39,7 @@ namespace Blackout.Experience
             _outline.effectColor = active ? UIStyle.Accent : new Color(1f, 1f, 1f, GameSettings.HighContrast ? 0.9f : 0.18f);
         }
 
-        public void OnPointerEnter(PointerEventData eventData) { _hover = true; Refresh(); }
+        public void OnPointerEnter(PointerEventData eventData) { _hover = true; UISounds.Play(UISounds.Kind.Hover); Refresh(); }
         public void OnPointerExit(PointerEventData eventData) { _hover = false; Refresh(); }
         public void OnSelect(BaseEventData eventData) { _selected = true; Refresh(); }
         public void OnDeselect(BaseEventData eventData) { _selected = false; Refresh(); }
