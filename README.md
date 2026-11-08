@@ -40,4 +40,11 @@ All assets must be CC0 / Creative Commons, purchased and licensed, or created by
 | Asset | Source | Licence | Used by |
 |---|---|---|---|
 | XR Interaction Toolkit samples and Unity VR template assets | Unity packages | Unity package licence | Track 1 test rig |
+| Kenney UI Pack | kenney.nl | CC0 1.0 | Track 1 (Assets/_Experience/ThirdParty) |
+| Kenney Interface Sounds | kenney.nl | CC0 1.0 | Track 1 (Assets/_Experience/ThirdParty) |
+| Kenney City Kit Commercial 2.1 | kenney.nl | CC0 1.0 | Track 3 (Assets/_World/ThirdParty) |
+| Kenney City Kit Industrial 1.0 | kenney.nl | CC0 1.0 | Track 3 |
+| Kenney City Kit Roads | kenney.nl | CC0 1.0 | Track 3 |
+| Kenney Furniture Kit | kenney.nl | CC0 1.0 | Track 3 |
+| Kenney Impact Sounds | kenney.nl | CC0 1.0 | Track 3 |
 | _add each asset here_ | | | |
