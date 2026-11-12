@@ -13,6 +13,7 @@ public static class GameFlow
     public static event Action<FlowState> StateChanged;
     public static event Action<string, string, Transform, float> CaptionShown;
     public static event Action<string> PromptChanged;
+    public static Func<string, float> Speak;
 
     public static FlowState State { get; private set; }
     public static RunResult Result { get; private set; }
@@ -30,6 +31,7 @@ public static class GameFlow
         StateChanged = null;
         CaptionShown = null;
         PromptChanged = null;
+        Speak = null;
         State = FlowState.Notice;
         noticeSeen = false;
         skipTitle = false;
@@ -53,7 +55,8 @@ public static class GameFlow
     public static float Caption(string id, Transform source, float duration)
     {
         string[] line = lines.ContainsKey(id) ? lines[id] : new[] { "", id };
-        float shown = duration > 0f ? duration : 1.5f + line[1].Length * 0.06f;
+        float spoken = source == null && Speak != null ? Speak(id) : 0f;
+        float shown = duration > 0f ? duration : (spoken > 0f ? spoken + 0.3f : 1.5f + line[1].Length * 0.06f);
         CaptionShown?.Invoke(line[0], line[1], source, shown);
         return shown;
     }

@@ -24,6 +24,8 @@ public class CityController : MonoBehaviour
     [SerializeField] private AudioSource powerUp;
     [SerializeField] private AudioSource cheer;
     [SerializeField] private AudioSource birds;
+    [SerializeField] private AudioSource narrator;
+    [SerializeField] private AudioClip[] narration;
 
     private readonly Vector4[] lampData = new Vector4[16];
     private float elapsed;
@@ -40,6 +42,7 @@ public class CityController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        GameFlow.Speak = Narrate;
         view.GetUniversalAdditionalCameraData().renderPostProcessing = !Application.isMobilePlatform;
         Power = 0f;
         Dawn = 0f;
@@ -113,6 +116,18 @@ public class CityController : MonoBehaviour
             birds.Play();
             GameFlow.Finish(RunResult.Dawn);
         }
+    }
+
+    private float Narrate(string id)
+    {
+        AudioClip clip = System.Array.Find(narration, item => item != null && item.name == id);
+        if (clip == null)
+        {
+            return 0f;
+        }
+        narrator.clip = clip;
+        narrator.Play();
+        return clip.length;
     }
 
     private void Sky()
