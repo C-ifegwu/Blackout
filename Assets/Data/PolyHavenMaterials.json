@@ -1,0 +1,146 @@
+{
+ "WoodenTable": {
+  "WoodenTable_01": "WoodenTableDiff"
+ },
+ "WoodenTableLong": {
+  "wooden_table_02": "WoodenTableLongDiff"
+ },
+ "PaintedTable": {
+  "painted_wooden_table": "PaintedTableDiff"
+ },
+ "PlasticChair": {
+  "plastic_monobloc_chair_01": "PlasticChairDiff"
+ },
+ "WoodenStool": {
+  "wooden_stool_02": "WoodenStoolDiff"
+ },
+ "FoldingStool": {
+  "folding_wooden_stool": "FoldingStoolDiff"
+ },
+ "WickerBasket": {
+  "wicker_basket_01": "WickerBasketDiff"
+ },
+ "WickerBasketTall": {
+  "wicker_basket_02": "WickerBasketTallDiff"
+ },
+ "WoodenCrate": {
+  "wooden_crate_01": "WoodenCrateDiff"
+ },
+ "WoodenCrateOpen": {
+  "wooden_crate_02": "WoodenCrateOpenDiff"
+ },
+ "PlasticCrate": {
+  "plastic_crate_01": "PlasticCrateDiff"
+ },
+ "MetalBarrel": {
+  "Barrel_01": "MetalBarrelExplosiveDiff"
+ },
+ "OilDrum": {
+  "barrel_03": "OilDrumDiff"
+ },
+ "Jerrycan": {
+  "metal_jerrycan": "JerrycanDiff"
+ },
+ "PlasticJerrycan": {
+  "plastic_jerrycan": "PlasticJerrycanDiff"
+ },
+ "Bananas": {
+  "Material.008": "BananasDiff"
+ },
+ "Onion": {
+  "yellow_onion": "OnionDiff"
+ },
+ "SweetPotato": {
+  "sweet_potato": "SweetPotatoDiff"
+ },
+ "Lemon": {
+  "lemon": "LemonDiff"
+ },
+ "Lime": {
+  "food_lime_01": "LimeDiff"
+ },
+ "Apple": {
+  "food_apple_01": "AppleDiff"
+ },
+ "Ginger": {
+  "food_ginger_01": "GingerDiff"
+ },
+ "WoodenBowl": {
+  "wooden_bowl_01": "WoodenBowlDiff"
+ },
+ "CeramicPot": {
+  "ceramic_pot": "CeramicPotDiff"
+ },
+ "BrassPot": {
+  "brass_pot_01": "BrassPotDiff"
+ },
+ "CardboardBox": {
+  "cardboard_box_01": "CardboardBoxDiff"
+ },
+ "TrashBag": {
+  "trashbag": "TrashBagDiff"
+ },
+ "DisplayShelves": {
+  "wooden_display_shelves_01": "DisplayShelvesDiff"
+ },
+ "StreetLamp": {
+  "street_lamp_01": "StreetLampDiff",
+  "street_lamp_01_glass": "StreetLampDiff",
+  "street_lamp_01_bulb": "StreetLampDiff"
+ },
+ "PowerPoles": {
+  "modular_electricity_poles_pieces": "PowerPolesPiecesDiff",
+  "modular_electricity_poles": "PowerPolesDiff"
+ },
+ "FireHydrant": {
+  "fire_hydrant": "FireHydrantDiff",
+  "fire_hydrant_aged": "FireHydrantAgedDiff"
+ },
+ "TrashCan": {
+  "metal_trash_can": "TrashCanDiff",
+  "metal_trash_can_rust": "TrashCanRustDiff"
+ },
+ "OldTyre": {
+  "old_tyre": "OldTyreDiff"
+ },
+ "RoadBarrier": {
+  "concrete_road_barrier": "RoadBarrierDiff"
+ },
+ "CoveredCar": {
+  "covered_car": "CoveredCarDiff"
+ },
+ "UtilityBox": {
+  "utility_box_01": "UtilityBoxDiff"
+ },
+ "Manhole": {
+  "water_manhole_cover": "ManholeDiff"
+ },
+ "AirconUnit": {
+  "exterior_aircon_unit_01": "AirconUnit01Diff",
+  "exterior_aircon_unit_02": "AirconUnit01Opacity",
+  "exterior_aircon_unit_rusted_01": "AirconUnitRusted01Diff",
+  "exterior_aircon_unit_rusted_02": "AirconUnitRusted02Opacity"
+ },
+ "ShutterDoor": {
+  "rollershutter_door": "ShutterDoorDiff",
+  "rollershutter_door_graffiti": "ShutterDoorGraffitiDiff"
+ },
+ "Generator": {
+  "portable_generator": "GeneratorDiff",
+  "portable_generator_glass": "GeneratorDiff"
+ },
+ "Radio": {
+  "vintage_radio_transceiver": "RadioDiff",
+  "vintage_radio_transceiver_accessories": "RadioAccessoriesDiff"
+ },
+ "Lantern": {
+  "Lantern_01_brass": "LanternBrassDiff",
+  "Lantern_01_glass": "LanternBrassDiff"
+ },
+ "RelayBox": {
+  "power_box_01": "RelayBoxDiff"
+ },
+ "HangingLight": {
+  "caged_hanging_light": "HangingLightDiff"
+ }
+}
