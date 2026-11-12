@@ -38,7 +38,7 @@ namespace Blackout.Experience.Editor
         public static void BuildApk()
         {
             Configure();
-            var scenes = new[] { ExperienceSceneBuilder.ScenePath }.Where(File.Exists).ToArray();
+            var scenes = new[] { "Assets/_World/Scenes/Blackout_City.unity", ExperienceSceneBuilder.ScenePath }.Where(File.Exists).Take(1).ToArray();
             if (scenes.Length == 0)
                 scenes = EditorBuildSettings.scenes.Where(s => s.enabled).Select(s => s.path).ToArray();
             if (scenes.Length == 0)

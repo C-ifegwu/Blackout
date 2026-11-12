@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_World/Scenes/Blackout_City.unity
+    guid: 489695e188e714e468bb1994805ba88e
+  - enabled: 1
     path: Assets/_Experience/Scenes/Experience_Test.unity
     guid: 40490325c7fb55846b8172dd9f6515fd
   - enabled: 1

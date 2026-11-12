@@ -1,6 +1,19 @@
 # Owner: Track 3 (World and Audio). Format: id,speaker,text,seconds (seconds optional).
-# PLACEHOLDER lines so Track 1 can test captions. Replace with the real story lines.
 id,speaker,text,seconds
+intro_1,Narrator,"NEPA has taken the light again. All of Lagos is dark.",5
+intro_2,Narrator,"A message must reach the radio tower in the old city before dawn.",5
+intro_3,Narrator,"Pull the trigger to send a sonar ping. Then walk toward the relay tone.",6
+intro_4,Narrator,"Tip: ping often. Every echo shows you where the walls and stalls are.",5
+relay_prompt,Radio,"You found the relay. Ping, or stand still for a moment, to switch it on.",5
+relay_on_1,Radio,"First relay is on. The next tone is deeper in the city.",5
+relay_on_2,Radio,"Second relay is on. Listen north for the last one.",5
+relay_on_3,Radio,"Third relay is on. The tower signal is live. Follow the beeps.",5
+tower_prompt,Radio,"This is the tower. Ping, or stand still, to send your message.",5
+deliver_1,You,"Mama, it is me. I am safe. Tell everyone the lights are coming back.",4
+deliver_2,Radio,"Message sent. Look around you. The city is waking up.",4
+vendor_01,Vendor,"Pure water, cold water! Come and get it!",3
+generator_01,Sound,"[A generator hums nearby]",3
+horn_01,Sound,"[A danfo horn sounds in the distance]",3
 test_01,Vendor,"Fresh bread, fresh bread! Come and get it!",3
 test_02,Radio,"...the power is expected back before dawn.",3.5
 test_03,Child,"Is somebody there?",2.5

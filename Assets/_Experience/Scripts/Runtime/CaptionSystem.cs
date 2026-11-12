@@ -71,6 +71,9 @@ namespace Blackout.Experience
         public void ShowText(string speaker, string text, float seconds)
         {
             if (!GameSettings.CaptionsOn || _label == null) return;
+            // Long enough to read: about two words a second, plus a little extra time.
+            int words = string.IsNullOrEmpty(text) ? 0 : text.Split(' ').Length;
+            seconds = Mathf.Max(seconds * 1.5f + 1f, 2.5f + words * 0.5f);
             if (_routine != null) StopCoroutine(_routine);
             _currentText = string.IsNullOrEmpty(speaker) ? text : $"{speaker}: {text}";
             _routine = StartCoroutine(Display(_currentText, Mathf.Max(1f, seconds)));

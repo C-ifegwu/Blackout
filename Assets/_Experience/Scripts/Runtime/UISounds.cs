@@ -28,6 +28,7 @@ namespace Blackout.Experience
 
         public static void Play(Kind kind)
         {
+            if (!Application.isPlaying) return;   // edit-mode tests must not spawn DontDestroyOnLoad objects
             if (!Ensure()) return;
             var clip = _clips[(int)kind];
             if (clip != null) _source.PlayOneShot(clip, Volume);

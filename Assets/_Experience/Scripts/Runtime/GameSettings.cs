@@ -22,6 +22,8 @@ namespace Blackout.Experience
         static bool s_OneHanded;
         static bool s_SnapTurn = true;
         static bool s_GazeSelect;
+        static bool s_Challenge;
+        static int s_MonsterLevel = 2;
         static float s_Brightness = 1f;
         static float s_CaptionScale = 1f;
         static float s_MasterVolume = 1f;
@@ -36,6 +38,27 @@ namespace Blackout.Experience
         public static bool OneHanded { get { EnsureLoaded(); return s_OneHanded; } set { SetBool(ref s_OneHanded, value, "oneHanded"); } }
         public static bool SnapTurn { get { EnsureLoaded(); return s_SnapTurn; } set { SetBool(ref s_SnapTurn, value, "snapTurn"); } }
         public static bool GazeSelect { get { EnsureLoaded(); return s_GazeSelect; } set { SetBool(ref s_GazeSelect, value, "gazeSelect"); } }
+
+        /// <summary>Optional "Beat the dawn" mode: the story run with a countdown. Off by default.</summary>
+        public static bool Challenge { get { EnsureLoaded(); return s_Challenge; } set { SetBool(ref s_Challenge, value, "challenge"); } }
+
+        /// <summary>0 = no monsters, 1 = gentle (fewer, slower, shorter sight), 2 = normal.</summary>
+        public const int MonstersOff = 0, MonstersGentle = 1, MonstersNormal = 2;
+        public static int MonsterLevel
+        {
+            get { EnsureLoaded(); return s_MonsterLevel; }
+            set
+            {
+                EnsureLoaded();
+                value = Mathf.Clamp(value, 0, 2);
+                if (s_MonsterLevel == value) return;
+                s_MonsterLevel = value;
+                PlayerPrefs.SetInt(Prefix + "monsters", value);
+                PlayerPrefs.Save();
+                Changed?.Invoke();
+            }
+        }
+        public static string MonsterLevelName => MonsterLevel == 0 ? "Off" : MonsterLevel == 1 ? "Gentle" : "Normal";
 
         public static float Brightness { get { EnsureLoaded(); return s_Brightness; } set { SetFloat(ref s_Brightness, value, "brightness", MinBrightness, MaxBrightness); } }
         public static float CaptionScale { get { EnsureLoaded(); return s_CaptionScale; } set { SetFloat(ref s_CaptionScale, value, "captionScale", MinCaptionScale, MaxCaptionScale); } }
@@ -52,7 +75,7 @@ namespace Blackout.Experience
         /// <summary>Restores factory defaults and clears saved values.</summary>
         public static void ResetToDefaults()
         {
-            foreach (var key in new[] { "captions", "highContrast", "reduceFlashing", "seated", "oneHanded", "snapTurn", "gazeSelect", "brightness", "captionScale", "masterVolume" })
+            foreach (var key in new[] { "captions", "highContrast", "reduceFlashing", "seated", "oneHanded", "snapTurn", "gazeSelect", "challenge", "monsters", "brightness", "captionScale", "masterVolume" })
                 PlayerPrefs.DeleteKey(Prefix + key);
             PlayerPrefs.Save();
             s_Loaded = false;
@@ -78,6 +101,8 @@ namespace Blackout.Experience
             s_OneHanded = GetBool("oneHanded", false);
             s_SnapTurn = GetBool("snapTurn", true);
             s_GazeSelect = GetBool("gazeSelect", false);
+            s_Challenge = GetBool("challenge", false);
+            s_MonsterLevel = Mathf.Clamp(PlayerPrefs.GetInt(Prefix + "monsters", 2), 0, 2);
             s_Brightness = Mathf.Clamp(PlayerPrefs.GetFloat(Prefix + "brightness", 1f), MinBrightness, MaxBrightness);
             s_CaptionScale = Mathf.Clamp(PlayerPrefs.GetFloat(Prefix + "captionScale", 1f), MinCaptionScale, MaxCaptionScale);
             s_MasterVolume = Mathf.Clamp01(PlayerPrefs.GetFloat(Prefix + "masterVolume", 1f));

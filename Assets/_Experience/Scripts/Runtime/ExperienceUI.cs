@@ -16,7 +16,7 @@ namespace Blackout.Experience
     public sealed class ExperienceUI : MonoBehaviour
     {
         const float MenuWidth = 1000f;
-        const float MenuHeight = 780f;
+        const float MenuHeight = 880f;
 
         Canvas _menu;
         Canvas _captionCanvas;
@@ -68,8 +68,32 @@ namespace Blackout.Experience
                 case GameState.HealthNotice: Show(MenuPanel.Health); break;
                 case GameState.MainMenu: Show(MenuPanel.Main); break;
                 case GameState.Paused: Show(MenuPanel.Pause); break;
-                case GameState.Ended: Show(MenuPanel.End); break;
+                case GameState.Ended: UpdateEndText(); Show(MenuPanel.End); break;
                 case GameState.Playing: Hide(); break;
+            }
+        }
+
+        TextMeshProUGUI _endTitle, _endBody;
+
+        void UpdateEndText()
+        {
+            if (_endTitle == null || _endBody == null) return;
+            string time = GameFlow.FormatTime(GameFlow.LastRunSeconds);
+            if (GameFlow.LastRunCaught)
+            {
+                _endTitle.text = "They found you";
+                _endBody.text = "The dark was not empty. Hold still to stay unseen, and remember that every ping can be heard. You can set Monsters to Gentle or Off in the main menu.";
+            }
+            else if (GameFlow.LastRunFailed)
+            {
+                _endTitle.text = "Dawn broke";
+                _endBody.text = "The message did not arrive in time. The city is still dark. Try again, or switch back to Story mode.";
+            }
+            else
+            {
+                _endTitle.text = "Message delivered";
+                string best = GameFlow.LastRunWasBest ? "New best time!" : "Best " + GameFlow.FormatTime(GameFlow.BestSeconds);
+                _endBody.text = "The lights are back. Thank you for listening.\nTime " + time + "   " + best;
             }
         }
 
@@ -119,6 +143,12 @@ namespace Blackout.Experience
             var main = NewPanel(MenuPanel.Main, "BLACKOUT");
             AddBody(main, "A city you hear before you see.", 70f, muted: true);
             AddButton(main, MenuPanel.Main, "Start", GameFlow.StartRun);
+            var modeButton = AddButton(main, MenuPanel.Main, "Mode: Story", () => GameSettings.Challenge = !GameSettings.Challenge);
+            var modeLabel = modeButton.GetComponentInChildren<TextMeshProUGUI>();
+            _refreshers.Add(() => { if (modeLabel != null) modeLabel.text = GameSettings.Challenge ? "Mode: Beat the dawn" : "Mode: Story"; });
+            var monsterButton = AddButton(main, MenuPanel.Main, "Monsters: Normal", () => GameSettings.MonsterLevel = (GameSettings.MonsterLevel + 2) % 3);
+            var monsterLabel = monsterButton.GetComponentInChildren<TextMeshProUGUI>();
+            _refreshers.Add(() => { if (monsterLabel != null) monsterLabel.text = "Monsters: " + GameSettings.MonsterLevelName; });
             AddButton(main, MenuPanel.Main, "Settings", () => OpenSettings(MenuPanel.Main));
             AddButton(main, MenuPanel.Main, "Quit", QuitApp);
 
@@ -128,7 +158,9 @@ namespace Blackout.Experience
             AddButton(pause, MenuPanel.Pause, "Main menu", GameFlow.ReturnToMenu);
 
             var end = NewPanel(MenuPanel.End, "Message delivered");
-            AddBody(end, "The lights are back. Thank you for listening.", 100f);
+            _endTitle = end.Find("Title") != null ? end.Find("Title").GetComponent<TextMeshProUGUI>() : null;
+            AddBody(end, "The lights are back. Thank you for listening.", 220f);
+            _endBody = end.Find("Body") != null ? end.Find("Body").GetComponent<TextMeshProUGUI>() : null;
             AddButton(end, MenuPanel.End, "Play again", GameFlow.StartRun);
             AddButton(end, MenuPanel.End, "Main menu", GameFlow.ReturnToMenu);
 

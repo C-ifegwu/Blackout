@@ -13,7 +13,7 @@ namespace Blackout.Experience.Editor
     public static class ExperienceSceneBuilder
     {
         public const string ScenePath = "Assets/_Experience/Scenes/Experience_Test.unity";
-        const string RigPath = "Assets/Samples/XR Interaction Toolkit/3.4.1/Starter Assets/Prefabs/XR Origin (XR Rig).prefab";
+        public const string RigPath = "Assets/Samples/XR Interaction Toolkit/3.4.1/Starter Assets/Prefabs/XR Origin (XR Rig).prefab";
 
         [MenuItem("Blackout/Experience/Create Test Scene")]
         public static void Create()
