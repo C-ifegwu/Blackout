@@ -1,0 +1,42 @@
+id,speaker,text
+Intro01,Narrator,NEPA has taken the light again. All of Lagos is dark.
+Intro02,Narrator,Before her phone died, Kemi recorded a voice note for her father, Baba Tunde. He keeps the old radio tower. It must reach him before dawn.
+Intro03,Narrator,Pull the trigger to send a sonar ping. Then walk toward the relay tone. Three relays will wake the tower.
+Intro04,Narrator,Something walks the streets tonight. Hold grip to cover your lantern, and keep still if it comes close.
+RelayPrompt,Radio,You found the relay. Ping, or stand still for a moment, to switch it on.
+RelayOn1,Radio,First relay is on. The next tone is inside the night market.
+RelayOn2,Radio,Second relay is on. Listen north for the last one.
+RelayOn3,Radio,Third relay is on. The tower signal is live. Follow the beeps to Baba Tunde.
+TowerPrompt,Radio,This is the tower. Ping, or stand still, to play Kemi's voice note.
+HintRelay,Radio,Listen for the relay tone. Hold listen to hear it clearly.
+HintTower,Radio,The tower signal is beeping. Baba Tunde is waiting by the radio.
+Vendor01,Mama Nkechi,Who is walking there? A courier? The next relay is inside the market. Go straight through, past my pepper stall.
+Vendor02,Mama Bisi,Careful, my dear. Something is walking the streets tonight. Cover your light when it comes near.
+Vendor03,Mr Bayo,Pure water, cold water! The last relay is north, on the tower road. Follow the beeping.
+Child02,Tobi,Is somebody there? Baba Radio is at the tower. Go north!
+Child01,,[A child hums a lullaby]
+Generator01,,[A generator hums nearby]
+Radio01,,[Highlife music crackles from Baba Tunde's radio]
+Relay01,,[A relay tone pulses]
+Tower01,,[The tower signal beeps]
+Tunde01,Baba Tunde,Who is there? I hear footsteps. Come closer, my child. My eyes are no good in this darkness.
+Message01,Kemi (voice note),Papa, it's Kemi. The baby came tonight. A girl, healthy and loud. We named her Imole. It means light. I'm sorry I couldn't call. Come to us when the sun comes up.
+Tunde02,Baba Tunde,Imole. Light. My granddaughter... Thank you, my child. Thank you.
+Deliver02,Radio,Message sent. Look around you. The city is waking up.
+City01,,[Cheering spreads across the city as the power comes back]
+Growl,,[Something growls in the dark]
+MonsterSeen,,[It has seen you. Break its line of sight, or cover your lantern and keep still]
+DawnWarn0,Radio,Three minutes to dawn.
+DawnWarn1,Radio,One minute to dawn. Hurry.
+DawnWarn2,Radio,The sun is rising.
+MenuNotice,,<b>Health and comfort notice</b>\n\nThis experience takes place in near-total darkness, with creatures that can chase you. Light only appears as soft ripples, your lantern and the city power at the end. There are no strobes or sudden flashes, and Reduce flashing is on by default.\n\nPlay seated or standing in a clear space. If you feel dizzy, scared or uncomfortable, stop and take the headset off. Monsters can be made gentle or switched off on the title screen.
+MenuTitle,,NEPA has taken the light. Wake three relays across the dark city, then play Kemi's voice note to her father, Baba Tunde, at the radio tower.
+MenuPaused,,The city waits in the dark.
+MenuControlsVR,,<color=#4CC9F0>Trigger</color>  ping    <color=#4CC9F0>A / X (hold)</color>  listen    <color=#4CC9F0>Grip (hold)</color>  cover lantern\n<color=#4CC9F0>Left stick</color>  walk    <color=#4CC9F0>Right stick</color>  turn    <color=#4CC9F0>B / Y</color>  pause
+MenuControlsDesktop,,<color=#4CC9F0>Click</color>  look    <color=#4CC9F0>WASD</color>  walk    <color=#4CC9F0>Space</color>  ping    <color=#4CC9F0>Shift (hold)</color>  listen\n<color=#4CC9F0>C (hold)</color>  cover lantern    <color=#4CC9F0>P or Esc</color>  pause
+TitleDelivered,,The lights are back
+MenuDelivered,,Baba Tunde heard his granddaughter's name for the first time, and the city woke up around him.
+TitleDawn,,Dawn broke
+MenuDawn,,The sun came up before the message reached the tower. Try Story mode for no timer.
+TitleCaught,,They found you
+MenuCaught,,The creatures caught you in the dark. Cover your lantern and keep still when one is near.
