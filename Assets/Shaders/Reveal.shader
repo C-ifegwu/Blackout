@@ -164,7 +164,7 @@ Shader "Blackout/Reveal"
                 half3 surface = reveal * (0.08 + pattern * 1.15 + rim * 0.75) * contrast;
                 half3 dark = surface + (albedo * 0.5 + 0.25) * _Ambient * (0.08 + pattern * 2.2 + rim * 1.2);
                 float glow = saturate(1.0 - distance(input.positionWS, _Lantern.xyz) / max(_Lantern.w, 0.01));
-                dark += albedo * half3(1.0, 0.72, 0.42) * glow * glow * 1.6 * step(0.01, _Lantern.w);
+                dark += albedo * half3(1.0, 0.72, 0.42) * glow * glow * 1.1 * step(0.01, _Lantern.w);
 
                 half3 lamps = 0;
                 [unroll]

@@ -136,7 +136,6 @@ public class Monster : MonoBehaviour
         if (distance < 22f)
         {
             GameFlow.Caption("Growl", transform, 3f);
-            SonarSystem.Emit(transform.position + Vector3.up, PulseKind.Touch, 2.5f, 0.6f);
         }
     }
 

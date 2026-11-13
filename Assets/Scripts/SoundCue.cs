@@ -10,10 +10,8 @@ public class SoundCue : MonoBehaviour
     [SerializeField] private float triggerRadius = 6f;
     [SerializeField] private bool playOnApproach;
     [SerializeField] private float captionRepeat = 35f;
-    [SerializeField] private float pulseInterval = 2.4f;
     [SerializeField] private float pulseRadius = 5f;
     [SerializeField] private float pulseStrength = 0.7f;
-    [SerializeField] private float pulseRange = 22f;
 
     private AudioSource source;
     private float baseVolume;
@@ -21,7 +19,7 @@ public class SoundCue : MonoBehaviour
     private float fadeSpeed;
     private bool spoken;
     private float nextCaption;
-    private float pulseTimer;
+    private float echoAt = -1f;
     private float talkingUntil;
 
     public bool Active => source.isPlaying || Time.time < talkingUntil;
@@ -37,7 +35,16 @@ public class SoundCue : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         baseVolume = source.volume;
-        pulseTimer = Random.Range(0f, pulseInterval);
+    }
+
+    private void OnEnable() => SonarSystem.Pinged += OnPing;
+
+    private void OnDisable() => SonarSystem.Pinged -= OnPing;
+
+    private void OnPing(Vector3 origin)
+    {
+        float distance = Vector3.Distance(origin, transform.position);
+        echoAt = distance <= 26f ? Time.time + distance / 10f : echoAt;
     }
 
     private void Update()
@@ -50,7 +57,11 @@ public class SoundCue : MonoBehaviour
             return;
         }
         float distance = Vector3.Distance(PlayerRig.Instance.Head.position, transform.position);
-        Pulse(distance);
+        if (echoAt > 0f && Time.time >= echoAt)
+        {
+            echoAt = -1f;
+            SonarSystem.Emit(transform.position, PulseKind.Sound, pulseRadius, pulseStrength);
+        }
         if (!GameFlow.IsPlaying)
         {
             return;
@@ -64,20 +75,6 @@ public class SoundCue : MonoBehaviour
         {
             nextCaption = Time.time + captionRepeat;
             GameFlow.Caption(captionId, transform, 4f);
-        }
-    }
-
-    private void Pulse(float distance)
-    {
-        pulseTimer -= Time.deltaTime;
-        if (!Active || pulseTimer > 0f)
-        {
-            return;
-        }
-        pulseTimer = pulseInterval + Random.Range(-0.3f, 0.3f);
-        if (distance <= pulseRange)
-        {
-            SonarSystem.Emit(transform.position, PulseKind.Sound, pulseRadius, pulseStrength * Mathf.Max(source.volume, 0.6f));
         }
     }
 

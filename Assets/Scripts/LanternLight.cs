@@ -8,8 +8,8 @@ public class LanternLight : MonoBehaviour
     [SerializeField] private Transform model;
     [SerializeField] private Vector3 handOffset = new Vector3(0f, -0.12f, 0.05f);
     [SerializeField] private Vector3 desktopOffset = new Vector3(-0.28f, -0.32f, 0.45f);
-    [SerializeField] private float litRadius = 5.5f;
-    [SerializeField] private float coveredRadius = 1.2f;
+    [SerializeField] private float litRadius = 2.5f;
+    [SerializeField] private float coveredRadius = 0.7f;
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioClip coverClip;
     [SerializeField] private AudioSource heartbeat;

@@ -17,7 +17,7 @@ public class SonarSystem : MonoBehaviour
     [SerializeField] private AudioClip pingClip;
     [SerializeField] private float cooldown = 1.2f;
     [SerializeField] private float radius = 26f;
-    [SerializeField] private float maxAmbient = 0.018f;
+    [SerializeField] private float maxAmbient = 0.003f;
 
     private float lastPing = -100f;
     private float hintTimer;
