@@ -124,7 +124,7 @@ public class SonarSystem : MonoBehaviour
         {
             hintTimer = 1.3f;
             Vector3 toward = Vector3.ProjectOnPlane(beacon - head.position, Vector3.up).normalized;
-            Emit(head.position + toward * 2.4f + Vector3.down * 0.7f, PulseKind.Sound, 2.2f, 1f);
+            Emit(head.position + toward * 2.4f + Vector3.down * 0.7f, PulseKind.Touch, 1.4f, 0.8f);
         }
     }
 }

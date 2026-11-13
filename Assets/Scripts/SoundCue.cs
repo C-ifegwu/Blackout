@@ -12,6 +12,7 @@ public class SoundCue : MonoBehaviour
     [SerializeField] private float captionRepeat = 35f;
     [SerializeField] private float pulseRadius = 5f;
     [SerializeField] private float pulseStrength = 0.7f;
+    [SerializeField] private bool menuOnly;
 
     private AudioSource source;
     private float baseVolume;
@@ -49,6 +50,7 @@ public class SoundCue : MonoBehaviour
 
     private void Update()
     {
+        fadeSpeed = menuOnly ? (GameFlow.State <= FlowState.Title || CityController.Power > 0f ? 0.5f : -0.5f) : fadeSpeed;
         fade = Mathf.MoveTowards(fade, fadeSpeed < 0f ? 0f : 1f, Mathf.Abs(fadeSpeed) * Time.deltaTime);
         float focusScale = this == Beacon ? Mathf.Lerp(1f, 1.7f, Focus) : Mathf.Lerp(1f, 0.25f, Focus);
         source.volume = Mathf.Clamp01(baseVolume * focusScale) * fade;
@@ -60,7 +62,7 @@ public class SoundCue : MonoBehaviour
         if (echoAt > 0f && Time.time >= echoAt)
         {
             echoAt = -1f;
-            SonarSystem.Emit(transform.position, PulseKind.Sound, pulseRadius, pulseStrength);
+            SonarSystem.Emit(transform.position, PulseKind.Touch, Mathf.Min(pulseRadius, 1.6f), pulseStrength);
         }
         if (!GameFlow.IsPlaying)
         {

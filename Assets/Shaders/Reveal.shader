@@ -120,7 +120,7 @@ Shader "Blackout/Reveal"
                 float onAt = saturate(distanceToMarket / 110.0) * 0.7 + wave * 0.25;
                 float lit = smoothstep(onAt, onAt + 0.04, _CityPower) * step(kind, 0.82);
                 half3 warm = lerp(half3(1.0, 0.74, 0.42), half3(0.72, 0.84, 1.0), step(0.6, kind));
-                float candle = step(0.955, kind) * 0.22 * (0.8 + 0.2 * sin(_RevealTime * 2.7 + wave * 40.0));
+                float candle = step(0.955, kind) * 0.22 * _CityPower * (0.8 + 0.2 * sin(_RevealTime * 2.7 + wave * 40.0));
                 return inside * (lit * warm * 1.5 + candle * half3(1.0, 0.45, 0.12));
             }
 

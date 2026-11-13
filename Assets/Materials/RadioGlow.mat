@@ -30,7 +30,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _LineDensity: 6
-    - _Pattern: 3
+    - _Pattern: 2
     m_Colors:
     - _BaseColor: {r: 0.35, g: 0.22, b: 0.12, a: 1}
     - _EmissionColor: {r: 0.7, g: 0.35, b: 0.06, a: 1}
