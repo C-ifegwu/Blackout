@@ -11,8 +11,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] private TextAsset captions;
     [SerializeField] private float distance = 1.8f;
 
-    private static readonly SettingKey[] toggles = { SettingKey.HighContrast, SettingKey.ReduceFlashing, SettingKey.CaptionsOn, SettingKey.Seated, SettingKey.OneHanded, SettingKey.Teleport, SettingKey.SmoothTurn, SettingKey.Vignette };
-    private static readonly string[] rows = { "High contrast|On|Off", "Reduce flashing|On|Off", "Captions|On|Off", "Seated mode|On|Off", "One-handed mode|On|Off", "Movement|Teleport|Smooth walk", "Turning|Smooth|Snap", "Comfort vignette|On|Off" };
+    private static readonly SettingKey[] toggles = { SettingKey.HighContrast, SettingKey.ReduceFlashing, SettingKey.CaptionsOn, SettingKey.Seated, SettingKey.OneHanded, SettingKey.Teleport, SettingKey.SmoothTurn, SettingKey.Vignette, SettingKey.Hud };
+    private static readonly string[] rows = { "High contrast|On|Off", "Reduce flashing|On|Off", "Captions|On|Off", "Seated mode|On|Off", "One-handed mode|On|Off", "Movement|Teleport|Smooth walk", "Turning|Smooth|Snap", "Comfort vignette|On|Off", "Caption panel (H)|On|Off" };
     private static readonly string[] monsters = { "Monsters: Off", "Monsters: Gentle", "Monsters: Normal" };
 
     private RectTransform panel;
@@ -123,8 +123,8 @@ public class MenuController : MonoBehaviour
 
     private RectTransform SettingsPanel()
     {
-        RectTransform root = HudController.Canvas(transform, "Settings", new Vector2(1300f, 1160f), 20, true);
-        HudController.Label(root, "<b>SETTINGS</b>", 70, new Vector2(0f, 500f), new Vector2(1200f, 90f), TextAlignmentOptions.Center, HudController.Accent);
+        RectTransform root = HudController.Canvas(transform, "Settings", new Vector2(1300f, 1250f), 20, true);
+        HudController.Label(root, "<b>SETTINGS</b>", 70, new Vector2(0f, 545f), new Vector2(1200f, 90f), TextAlignmentOptions.Center, HudController.Accent);
         HudController.Label(root, "Brightness  " + Mathf.RoundToInt(GameSettings.Brightness * 10f) + " / 10", 42, new Vector2(-140f, 400f), new Vector2(840f, 76f), TextAlignmentOptions.Left, HudController.Ink);
         HudController.Button(root, "-", new Vector2(370f, 400f), new Vector2(110f, 76f), () => GameSettings.SetBrightness(GameSettings.Brightness - 0.1f));
         HudController.Button(root, "+", new Vector2(500f, 400f), new Vector2(110f, 76f), () => GameSettings.SetBrightness(GameSettings.Brightness + 0.1f));
@@ -135,7 +135,7 @@ public class MenuController : MonoBehaviour
             HudController.Label(root, row[0], 42, new Vector2(-280f, 312f - i * 88f), new Vector2(560f, 76f), TextAlignmentOptions.Left, HudController.Ink);
             HudController.Button(root, GameSettings.Get(key) ? row[1] : row[2], new Vector2(320f, 312f - i * 88f), new Vector2(450f, 76f), () => GameSettings.Toggle(key));
         }
-        HudController.Button(root, "Back", new Vector2(0f, -495f), new Vector2(360f, 100f), () => Settings(false));
+        HudController.Button(root, "Back", new Vector2(0f, -560f), new Vector2(360f, 100f), () => Settings(false));
         return root;
     }
 }

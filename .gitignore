@@ -117,3 +117,9 @@ InitTestScene*.unity*
 /Builds/
 *.apk
 *.aab
+
+# Build leftovers
+*_BurstDebugInformation_DoNotShip/
+*_BackUpThisFolder_ButDontShipItWithYourGame/
+/Assets/XR/Temp/
+/Assets/XR/Temp.meta

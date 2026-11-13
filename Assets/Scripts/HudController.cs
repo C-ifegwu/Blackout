@@ -64,7 +64,7 @@ public class HudController : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(transform.position - head.position, Vector3.up);
         if (captionBack.gameObject.activeSelf)
         {
-            captionBack.gameObject.SetActive(Time.unscaledTime < hideAt && GameSettings.CaptionsOn);
+            captionBack.gameObject.SetActive(Time.unscaledTime < hideAt && GameSettings.CaptionsOn && GameSettings.Get(SettingKey.Hud));
             string where = speakerAt != null ? "  <color=#9FB3C8>(" + GameFlow.Describe(head, speakerAt.position) + ")</color>" : "";
             caption.text = speaker.Length > 0 ? "<color=#4CC9F0><b>" + speaker + "</b></color>" + where + "\n" + words : words + where;
         }
@@ -76,12 +76,12 @@ public class HudController : MonoBehaviour
         words = text;
         speakerAt = from;
         hideAt = Time.unscaledTime + duration + 0.6f;
-        captionBack.gameObject.SetActive(GameSettings.CaptionsOn);
+        captionBack.gameObject.SetActive(GameSettings.CaptionsOn && GameSettings.Get(SettingKey.Hud));
     }
 
     private void OnPrompt(string text)
     {
-        promptBack.gameObject.SetActive(!string.IsNullOrEmpty(text));
+        promptBack.gameObject.SetActive(!string.IsNullOrEmpty(text) && GameSettings.Get(SettingKey.Hud));
         prompt.text = text;
     }
 

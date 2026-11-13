@@ -41,10 +41,12 @@ public class ControllerInput : MonoBehaviour
             Make(InputActionType.Button, "<XRController>/{PrimaryButton}", "<Keyboard>/leftShift", "<Keyboard>/f", "<Gamepad>/leftShoulder"),
             Make(InputActionType.Button, "<XRController>/{GripButton}", "<Keyboard>/c", "<Mouse>/rightButton", "<Gamepad>/rightShoulder"),
             Make(InputActionType.Button, "<XRController>/{TriggerButton}", "<Keyboard>/space", "<Mouse>/leftButton", "<Gamepad>/rightTrigger"),
-            Make(InputActionType.Button, "<XRController>/{SecondaryButton}", "<XRController>{LeftHand}/{MenuButton}", "<Keyboard>/escape", "<Keyboard>/p", "<Keyboard>/tab", "<Gamepad>/start")
+            Make(InputActionType.Button, "<XRController>/{SecondaryButton}", "<XRController>{LeftHand}/{MenuButton}", "<Keyboard>/escape", "<Keyboard>/p", "<Keyboard>/tab", "<Gamepad>/start"),
+            Make(InputActionType.Button, "<XRController>{LeftHand}/{Primary2DAxisClick}", "<Keyboard>/h", "<Gamepad>/select")
         };
         actions[5].performed += context => PingPressed?.Invoke();
         actions[6].performed += context => PausePressed?.Invoke();
+        actions[7].performed += context => GameSettings.Toggle(SettingKey.Hud);
     }
 
     private void OnEnable()

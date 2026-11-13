@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-public enum SettingKey { ReduceFlashing, HighContrast, Seated, OneHanded, CaptionsOn, Teleport, SmoothTurn, Vignette, DawnMode }
+public enum SettingKey { ReduceFlashing, HighContrast, Seated, OneHanded, CaptionsOn, Teleport, SmoothTurn, Vignette, DawnMode, Hud }
 
 public static class GameSettings
 {
     public static event Action Changed;
 
-    private static readonly bool[] defaults = { true, false, false, false, true, false, false, true, false };
+    private static readonly bool[] defaults = { true, false, false, false, true, false, false, true, false, true };
     private static bool[] flags;
     private static float brightness = 0.5f;
     private static int monsterLevel = 2;
